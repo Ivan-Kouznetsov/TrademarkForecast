@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TrademarkForecast": {
+      "commandName": "Project",
+      "commandLineArgs": "sample.json"
+    }
+  }
+}
