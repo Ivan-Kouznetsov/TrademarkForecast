@@ -19,7 +19,7 @@ namespace TrademarkForecast.Services
             List<int> classIds = new List<int>();
             List<DateTime> useDates = new List<DateTime>();
 
-            int daysSinceFiling = 0;
+            int daysSinceFiling;
 
             IEnumerable<object> gsList = trademarkFile.trademarks[0].gsList;
             foreach (dynamic d in gsList)

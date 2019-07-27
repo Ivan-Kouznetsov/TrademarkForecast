@@ -121,7 +121,7 @@
     <value>File not found</value>
   </data>
   <data name="Instructions" xml:space="preserve">
-    <value>Usage: TrademarkPrediction trademarkdata.json \n For an example of trademark json data see https://tsdrapi.uspto.gov/ts/cd/casestatus/sn86752385/info.json</value>
+    <value>Usage: TrademarkPrediction [serialnumber]</value>
   </data>
   <data name="PressAnyKey" xml:space="preserve">
     <value>Press any key to exit...</value>

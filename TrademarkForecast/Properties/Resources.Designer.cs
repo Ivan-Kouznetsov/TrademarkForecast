@@ -70,7 +70,7 @@ namespace TrademarkForecast.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Usage: TrademarkPrediction trademarkdata.json \n For an example of trademark json data see https://tsdrapi.uspto.gov/ts/cd/casestatus/sn86752385/info.json.
+        ///   Looks up a localized string similar to Usage: TrademarkPrediction [serialnumber].
         /// </summary>
         internal static string Instructions {
             get {

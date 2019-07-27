@@ -4,6 +4,7 @@ using Microsoft.ML;
 using Newtonsoft.Json;
 
 using TrademarkForecast.Models;
+
 namespace TrademarkForecast
 {
     class Program
@@ -20,18 +21,12 @@ namespace TrademarkForecast
             }
             else
             {
-                string jsonFilepath = args[0];
-                if (!File.Exists(jsonFilepath))
-                {
-                    Console.WriteLine(Properties.Resources.FileNotFound);
-                    PressAnyKey();
-                    return;
-                }
+                string serialNumber = args[0];               
 
-                // Try to parse file
+                // Try to parse
                 try
                 {
-                    dynamic trademarkFile = JsonConvert.DeserializeObject(File.ReadAllText(jsonFilepath));
+                    dynamic trademarkFile = JsonConvert.DeserializeObject(DAO.TsdrDAO.GetApplicationData(serialNumber));
 
                     Casefile casefile = Services.Parser.TrademarkFileToCasefile(trademarkFile);
 
@@ -40,13 +35,12 @@ namespace TrademarkForecast
                     ITransformer model = GetModel(mlContext, "ML" + Path.DirectorySeparatorChar + modelFilename);
                     var prediction = Predict(mlContext, model, casefile);
 
-                    //output results
-
+                    // Output results
                     ShowPrediction(prediction);
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error parsing file: " + ex.Message);
+                    Console.WriteLine("Error parsing data: " + ex.Message);
                 }
             }
         }
@@ -69,7 +63,7 @@ namespace TrademarkForecast
 
         static void ShowPrediction((bool Prediction, float Probability) prediction)
         {
-            Console.WriteLine("Prediction: " + (prediction.Prediction ? " Will be cancelled" : "Will not be cancelled"));
+            Console.WriteLine("Prediction: " + (prediction.Prediction ? "Will be cancelled" : "Will not be cancelled"));
             Console.WriteLine("Probability: " + Math.Round(prediction.Probability * 100) + "%");
         }
 
