@@ -9,7 +9,7 @@ namespace TrademarkForecast
 {
     class Program
     {
-        const string modelFilename = "FuledAsUsedInCommerceLbfgsLogisticRegressionBinaryTrainerModel.zip";
+        const string modelFilename = "1M_Streamlined_All_Normalized_LbfgsLogisticRegression.zip";
 
         static void Main(string[] args)
         {

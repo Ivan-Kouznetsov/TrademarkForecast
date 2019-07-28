@@ -31,9 +31,30 @@ namespace TrademarkForecast.Services
 
             daysSinceFiling = (useDates.First() - filingDate).Days;            
 
-            Casefile casefile = new Casefile(markLiteralElements, allGoodsAndServices, attorney, ownerTypeId, classIds.Count, daysSinceFiling, classIds, false);
+            Casefile casefile = new Casefile(markLiteralElements, 
+                                             daysSinceFiling,
+                                             string.Empty /*not used currently*/, 
+                                             ownerTypeId, 
+                                             classIds.Count, 
+                                             allGoodsAndServices, 
+                                             attorney, 
+                                             ClassIdListToBoolArray(classIds), 
+                                             false);
 
             return casefile;
+        }
+
+        private static bool[] ClassIdListToBoolArray(List<int> classIds)
+        {
+            const int ClassCount = 45;
+            bool[] results = new bool[ClassCount];
+
+            for (int i = 0; i < ClassCount; i++)
+            {
+                results[i] = classIds.Contains(i+1); // classes start at 1 not 0
+            }
+
+            return results;
         }
     }
 }
