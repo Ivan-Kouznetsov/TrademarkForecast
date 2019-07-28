@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ML\2M_Streamlined_LbfgsLogisticRegression.zip">
+    <None Update="ML\AllApplicationsLbfgsLogisticRegression.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -9,7 +9,7 @@ namespace TrademarkForecast
 {
     class Program
     {
-        const string modelFilename = "2M_Streamlined_LbfgsLogisticRegression.zip";
+        const string AllApplicationsModel = "AllApplicationsLbfgsLogisticRegression.zip";
 
         static void Main(string[] args)
         {
@@ -32,7 +32,7 @@ namespace TrademarkForecast
 
                     // Make prediction
                     MLContext mlContext = new MLContext();
-                    ITransformer model = GetModel(mlContext, "ML" + Path.DirectorySeparatorChar + modelFilename);
+                    ITransformer model = GetModel(mlContext, "ML" + Path.DirectorySeparatorChar + AllApplicationsModel);
                     var prediction = Predict(mlContext, model, casefile);
 
                     // Output results

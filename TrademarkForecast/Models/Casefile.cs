@@ -15,9 +15,7 @@ namespace TrademarkForecast.Models
             set { classes = Array.ConvertAll(value, item => Convert.ToBoolean(item)); }
         }
 
-        public string MarkLiteralElements;
-        public float DaysSinceFiling;
-        public string Owner;
+        public string MarkLiteralElements;     
         public float OwnerTypeId;
         public float NumberOfClasses;
         public string GoodsAndServices;
@@ -28,11 +26,9 @@ namespace TrademarkForecast.Models
         [ColumnName("Label")]
         public bool Cancelled;
 
-        public Casefile(string markLiteralElements, float daysSinceFiling, string owner, float ownerTypeId, float numberOfClasses, string goodsAndServices, string attorney, bool[] classes, bool cancelled)
+        public Casefile(string markLiteralElements, float ownerTypeId, float numberOfClasses, string goodsAndServices, string attorney, bool[] classes, bool cancelled)
         {
-            MarkLiteralElements = markLiteralElements;
-            DaysSinceFiling = daysSinceFiling;
-            Owner = owner;
+            MarkLiteralElements = markLiteralElements;           
             OwnerTypeId = ownerTypeId;
             NumberOfClasses = numberOfClasses;
             GoodsAndServices = goodsAndServices;
