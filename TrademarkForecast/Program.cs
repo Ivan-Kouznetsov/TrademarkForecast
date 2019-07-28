@@ -9,7 +9,7 @@ namespace TrademarkForecast
 {
     class Program
     {
-        const string modelFilename = "FiledAsUsedInCommerceModel.zip";
+        const string modelFilename = "FuledAsUsedInCommerceLbfgsLogisticRegressionBinaryTrainerModel.zip";
 
         static void Main(string[] args)
         {
@@ -50,21 +50,22 @@ namespace TrademarkForecast
             return mlContext.Model.Load(filepath, out DataViewSchema columns);
         }
 
-        private static (bool Prediction, float Probability) Predict(MLContext mlContext, ITransformer model, Casefile casefile)
+        private static bool Predict(MLContext mlContext, ITransformer model, Casefile casefile)
         {
             PredictionEngine<Casefile, CasefilePrediction> predictionFunction = mlContext.Model.CreatePredictionEngine<Casefile, CasefilePrediction>(model);
 
             var resultPrediction = predictionFunction.Predict(casefile);
 
-            return (resultPrediction.Prediction, resultPrediction.Probability);
+            // return (resultPrediction.Prediction, resultPrediction.Probability);
+            return resultPrediction.Prediction;
         }
 
         #region UI
 
-        static void ShowPrediction((bool Prediction, float Probability) prediction)
+        static void ShowPrediction(bool prediction)
         {
-            Console.WriteLine("Prediction: " + (prediction.Prediction ? "Will be cancelled" : "Will not be cancelled"));
-            Console.WriteLine("Probability: " + Math.Round(prediction.Probability * 100) + "%");
+            Console.WriteLine("Prediction: " + (prediction ? "Will be cancelled" : "Will not be cancelled"));
+           // Console.WriteLine("Probability: " + Math.Round(prediction.Probability * 100) + "%");
         }
 
         static void PressAnyKey()
