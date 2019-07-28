@@ -26,13 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="ML\1M_Streamlined_All_Normalized_LbfgsLogisticRegression.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="ML\FuledAsUsedInCommerceLbfgsLogisticRegressionBinaryTrainerModel.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="ML\FiledAsUsedInCommerceModel.zip">
+    <None Update="ML\2M_Streamlined_LbfgsLogisticRegression.zip">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

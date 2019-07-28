@@ -2,9 +2,9 @@ An application that uses a machine learning model to predict whether a use-based
 
 Model quality metrics evaluation
 --------------------------------
-Accuracy: 69.46 %  
-Auc: 75.29 %  
-F1Score: 59.80 %  
+Accuracy: 70.43 %  
+Auc: 76.61 %  
+F1Score: 61.25 %  
 
 ### Usage
 
