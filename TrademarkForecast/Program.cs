@@ -56,7 +56,6 @@ namespace TrademarkForecast
 
             var resultPrediction = predictionFunction.Predict(casefile);
 
-            // return (resultPrediction.Prediction, resultPrediction.Probability);
             return resultPrediction.Prediction;
         }
 
@@ -64,8 +63,7 @@ namespace TrademarkForecast
 
         static void ShowPrediction(bool prediction)
         {
-            Console.WriteLine("Prediction: " + (prediction ? "Will be cancelled" : "Will not be cancelled"));
-           // Console.WriteLine("Probability: " + Math.Round(prediction.Probability * 100) + "%");
+            Console.WriteLine("Prediction: " + (prediction ? "Will be cancelled" : "Will not be cancelled"));        
         }
 
         static void PressAnyKey()
